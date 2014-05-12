@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class IndexController {
 
 	//@SuppressWarnings("")
-	@RequestMapping(value="/", method=RequestMethod.GET)
+	@RequestMapping(value="/test", method=RequestMethod.GET)
 	@ResponseBody
 	public String showIndex() {
 		return "Hello world";
