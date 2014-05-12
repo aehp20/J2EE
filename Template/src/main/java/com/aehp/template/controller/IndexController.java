@@ -10,6 +10,8 @@ public class IndexController {
 
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public ModelAndView showIndex() {
-		return new ModelAndView("index", "model", null);
+		ModelAndView model = new ModelAndView("index");
+		model.addObject("msg", "hello world");
+		return model;
 	}
 }

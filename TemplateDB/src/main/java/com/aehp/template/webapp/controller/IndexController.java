@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -26,10 +25,8 @@ public class IndexController {
     SampleService sampleService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-	@ResponseBody
-    public String index() {
-//        return new ModelAndView(PAGE_INDEX, "signupForm", new SignupForm());
-        return "new ModelAndView(PAGE_INDEX)";
+    public ModelAndView index() {
+        return new ModelAndView(PAGE_INDEX, "signupForm", new SignupForm());
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
