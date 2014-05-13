@@ -2,13 +2,13 @@ package com.aehp.template.initializer;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRegistration;
+import javax.servlet.ServletRegistration.Dynamic;
 
 import org.springframework.web.WebApplicationInitializer;
-import org.springframework.web.context.ContextLoaderListener;
-import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
+
+import com.aehp.template.config.WebMvcConfig;
 
 public class AppInitializer implements WebApplicationInitializer {
 
@@ -17,11 +17,19 @@ public class AppInitializer implements WebApplicationInitializer {
 
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
-		WebApplicationContext context = getContext();
-		servletContext.addListener(new ContextLoaderListener(context));
-		ServletRegistration.Dynamic dispatcher = servletContext.addServlet("DispatcherServlet", new DispatcherServlet(context));
-		dispatcher.setLoadOnStartup(1);
-		dispatcher.addMapping(MAPPING_URL);
+//		WebApplicationContext context = getContext();
+//		servletContext.addListener(new ContextLoaderListener(context));
+//		ServletRegistration.Dynamic dispatcher = servletContext.addServlet("DispatcherServlet", new DispatcherServlet(context));
+//		dispatcher.setLoadOnStartup(1);
+//		dispatcher.addMapping(MAPPING_URL);
+		
+		AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();  
+        ctx.register(WebMvcConfig.class);  
+        ctx.setServletContext(servletContext);    
+        
+        Dynamic servlet = servletContext.addServlet("dispatcher", new DispatcherServlet(ctx));  
+        servlet.addMapping("/");  
+        servlet.setLoadOnStartup(1);  
 	}
 
 	private AnnotationConfigWebApplicationContext getContext() {
