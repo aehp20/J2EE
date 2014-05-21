@@ -10,37 +10,34 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.aehp.template.json.JsonDateTimeWithSecondsSerializer;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
 @Entity
 @Table(
     name = "STUDENT")
 public class Student implements Serializable {
 
-    /**
-     * The serial version UID.
-     */
     private static final long serialVersionUID = 10000L;
 
-    /**
-     * The student ID.
-     */
     @Id
     @Column(
         name = "ID")
     private int id;
 
-    /**
-     * The student name.
-     */
     @Column(
         name = "NAME")
     private String name;
 
-    /**
-     * The creation date time.
-     */
+    @Column(
+    	name = "EMAIL")
+    private String email;
+
+    @Column(
+       	name = "LOGIN")
+    private String login;
+
+    @Column(
+       	name = "PASSWORD")
+    private String password;
+
     @Column(
         name = "CREATION_DATE")
     @Temporal(TemporalType.TIMESTAMP)
@@ -48,13 +45,52 @@ public class Student implements Serializable {
 //        using = JsonDateTimeWithSecondsSerializer.class)
     private Date creationTime;
 
-    /**
-     * A flag to know if the alternative is right.
-     */
-    @Column(
-        name = "IS_ANSWER",
-            nullable = false)
-    private boolean isAnswer;
+	public int getId() {
+		return id;
+	}
 
-    
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Date getCreationTime() {
+		return creationTime;
+	}
+
+	public void setCreationTime(Date creationTime) {
+		this.creationTime = creationTime;
+	}
+
 }

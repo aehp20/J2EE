@@ -3,7 +3,7 @@ package com.aehp.template.controller;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.inject.Inject;
+//import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,8 +16,8 @@ import com.aehp.template.dao.IStudentDao;
 @Controller
 public class IndexController {
 
-	@Inject
-    private IStudentDao studentDao;
+//	@Inject
+//    private IStudentDao studentDao;
 
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String showIndex(Model model) {

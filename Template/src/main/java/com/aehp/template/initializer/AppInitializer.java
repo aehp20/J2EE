@@ -23,8 +23,8 @@ public class AppInitializer implements WebApplicationInitializer {
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		WebApplicationContext context = getContext(servletContext);
 
-		servletContext.addListener(new ContextLoaderListener(context));
-		servletContext.addListener(new RequestContextListener());
+//		servletContext.addListener(new ContextLoaderListener(context));
+//		servletContext.addListener(new RequestContextListener());
 
         // Create a servlet mapping for Dispatcher Servlet.
         Dynamic dispatcherServlet =
