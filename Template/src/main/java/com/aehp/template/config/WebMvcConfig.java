@@ -14,7 +14,7 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.aehp.template")
-@Import(DataBaseConfig.class)
+//@Import(DataBaseConfig.class)
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
