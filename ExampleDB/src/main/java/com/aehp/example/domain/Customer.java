@@ -1,6 +1,6 @@
 package com.aehp.example.domain;
 
-import java.sql.Timestamp;
+//import java.sql.Timestamp;
 
 public class Customer 
 {

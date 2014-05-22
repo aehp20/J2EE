@@ -10,10 +10,11 @@ import com.aehp.example.domain.Customer;
 
 public class App 
 {
+	private static ApplicationContext context;
+
     public static void main( String[] args )
     {
-    	ApplicationContext context = 
-    		new ClassPathXmlApplicationContext("Spring-Module.xml");
+    	context = new ClassPathXmlApplicationContext("Spring-Module.xml");
 
         CustomerDAO customerDAO = (CustomerDAO) context.getBean("customerDAO");
 
